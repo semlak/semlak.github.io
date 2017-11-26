@@ -1,4 +1,4 @@
-
+/* general styling */
 
 body {
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -13,17 +13,64 @@ body {
 	padding: 20px;
 	border: 1px solid #ddd;
 	border-radius: .25rem;
-
+	margin-top: 40px;
 }
 
-.container.wrapper {
-	/*margin-top: 40px;*/
 
-	/* this top padding is used to offset the sticky navbar. */
-	padding-top: 70px;
+/*
+* .main-content, .sidebar {
+	margin-top: 40px;
+}
+*/
+
+.card-header {
+	background: #fff;
+}
+
+
+
+.container.wrapper {
+	/* this top padding is used to offset the navbar's absolute positioning.  For smaller viewport, media query is used to remove top-padding and change navbar positioning to static */
+	padding-top: 86px;
 	padding-bottom: 40px;
 	margin-bottom: 40px;
 }
+
+
+h1,
+h2,
+h3 {
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-weight: 700;
+	color: #18BC9C;
+}
+
+h1 {
+	padding-bottom: 20px;
+	font-size: 30px;
+	line-height: 49px;
+}
+
+h2,
+h3 {
+	font-size: 22px;
+}
+
+
+
+.img-profile {
+	width: 200px;
+	float: left;
+	margin-right: 25px;
+	margin-top: 10px;
+}
+
+p {
+	text-align: justify;
+}
+
+
+
 
 
 /* Sticky footer styles
@@ -38,6 +85,8 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 105px;
 }
+
+
 
 .footer {
 	/*padding: 30px 0;*/
@@ -67,273 +116,38 @@ body {
 
 
 
-/*
-body.container {
-	padding: 60px 15px 0!important;
-	margin-top: 400px;
-}
-
-*/
-.main-content, .sidebar {
-	margin-top: 40px;
-}
-
-.card-header {
-	background: #fff;
-}
-
-
-h1,
-h2,
-h3 {
-	font-family: Georgia, Times, "Times New Roman", serif;
-	font-weight: 700;
-	color: #18BC9C;
-}
-
-h1 {
-	padding-bottom: 20px;
-	font-size: 30px;
-	line-height: 49px;
-	/*border-bottom: 3px solid #ddd;*/
-}
-
-h2,
-h3 {
-	font-size: 22px;
-}
-
-/*additional reset for form input and textarea*/
-/*input, textarea {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-
-
-body {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 18px;
-	line-height: 34px;
-	color: #777;
-	background: url("../images/concrete_seamless.png");
-}
-
-* {
-	box-sizing: border-box;
-	margin: 0;
-}
-*/
-
-
-
-/* sticky footer styling */
-
-/* http://ryanfait.com/html5-sticky-footer/ */
-
-/*html,
-body {
-	height: 100%;
-}
-
-.wrapper {
-	height: auto !important;
-	height: 100%;
-	min-height: 100%;
-	margin: 0 auto -105px;
-}
-
-footer,
-.push {
-	height: 105px;
-}
-*/
-/* end sticky footer styling */
-
-.img-profile {
-	width: 200px;
-	float: left;
-	margin-right: 25px;
-	margin-top: 10px;
-}
-
-p {
-	text-align: justify;
-}
-
 /* start hover styling */
 
-/*#logo:hover,
-input[type=submit]:hover {
-	background: #5e7f7e;
-}
-
-nav a:hover {
-	color: #5e7f7e;
-}
-
-.img-profile {
-	float: left;
-	width: 200px;
-	height: auto;
-	margin-top: 10px;
-	margin-right: 25px;
-}
 
 .img-social:hover {
 	cursor: pointer;
 	opacity: 0.8;
 }
-*/
 
 
-.img-social {
-	/*max-width: 34.33px;*/
-	/*min-width: 39.33px;*/
-}
-
-
-.img-social:hover {
-	cursor: pointer;
-	opacity: 0.8;
-}
+	/*note that hover styling for captions over portfolio images is handled using a bootstrap btn class*/
 
 
 /* end hover styling */
 
-/* general styling */
 
-/*.container {
-	width: 100%;
-	max-width: 960px;
-	margin: 0 auto;
-	clear: both;
-}
 
-h1,
-h2,
-h3,
-p {
-	margin-bottom: 20px;
-}
 
-p:last-child {
-	margin-bottom: 0;
-}
 
-h1,
-h2,
-h3 {
-	font-family: Georgia, Times, "Times New Roman", serif;
-	font-weight: 700;
-	color: #18BC9C;
-}
 
-h1 {
-	padding-bottom: 20px;
-	font-size: 30px;
-	line-height: 49px;
-	border-bottom: 3px solid #ddd;
-}
 
-h2,
-h3 {
-	font-size: 22px;
-}
+
+/* header/navbar */
+
+.nav-link {
+/*
+	When navbar switches to collapsed, it's height decreased a bit due to the nav links (and their top and bottom padding) no longer being there.
+	However, removing the nav-link top and bottom padding doesn't seem result in unpleasant display, and it prevents the changing navbar size when collapse, so remove nav-link top/bottom padding
 */
-
-
-
-/* header */
-
-/*#masthead {
-	position: fixed;
-	z-index: 99;
-	width: 100%;
-	margin: 0 0 30px;
-	overflow: auto;
-	color: #fff;
-	background: #fff;
-	border-bottom: 2px solid #ccc;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
-#logo {
-	float: left;
-	width: 250px;
-	height: 90px;
-	font-family: Georgia, Times, "Times New Roman", serif;
-	font-size: 30px;
-	font-weight: 700;
-	line-height: 90px;
-	color: #fff;
-	text-align: center;
-	text-decoration: none;
-	background: #18BC9C;
-}
-
-nav {
-	float: right;
-	margin-top: 25px;
-}
-
-nav a {
-	display: inline-block;
-	padding-left: 15px;
-	margin-left: 15px;
-	line-height: 18px;
-	color: #999;
-	text-decoration: none;
-	border-left: 1px solid #efefef;
-}
-
-nav a:first-child {
-	border-left: 0 none;
-}
-*/
-
-
-
-@media screen and (max-width: 991px) {
-
-	.img-profile {
-		width: 100%;
-		float: none;
-	}
-}
-
-
-
-@media screen and (max-width: 767px) {
-
-	.img-profile {
-		float: left;
-		width: 50%;
-	}
-}
-
-
-
-@media screen and (max-width: 575px) {
-
-	.img-profile {
-		width: 100%;
-		float: none;
-	}
-
-	nav {
-		position: static!important;
-	}
-
-	.container.wrapper {
-		padding-top: 0;
-	}
-
-
-}
 
 
 /* portfolio page */
@@ -366,6 +180,8 @@ nav a:first-child {
 }
 
 .work .btn {
+	/* these are for the styling of the bottoms over the portfolio images (they were headers in assignment one) */
+	/* this looks good for the larger viewports, but gets messed up for smaller ones. Seems to be because of absolute sizes*/
 	position: absolute;
 	bottom: 20px;
 	left: 0;
@@ -376,206 +192,95 @@ nav a:first-child {
 	line-height: 30px;
 	color: #fff;
 
-	/*text-align: center;*/
-	/*background: #18BC9C;*/
-	/*border-bottom: 0;*/
+}
+
+.work .btn {
+	/* these are for the styling of the bottoms over the portfolio images (they were headers in assignment one) */
+
+	/*  attempt to make them work at different viewport settings. Works okay for smaller viewports, but text verticle aligment fluctuates alot */
+	position: absolute;
+	bottom: 10%;
+	height: 30%;
+	left: 0;
+	width: 100%;
+	padding: 15px;
+	/*margin-bottom: 0;*/
+	font-weight: 300;
+	/*line-height: 30px;*/
+	line-height: 15%;
+	color: #fff;
+
 }
 
 
-.work .btn:hover {
-	/*background: #5e7f7e;*/
-}
 
 .work .btn {
 	border-radius: 0;
 }
 
-/*.work {
-	position: relative;
-	float: left;
-	width: 274px;
-	margin: 20px 0 25px;
-	overflow: auto;
-}
-
-.work:nth-child(even) {
-	margin-right: 40px;
-}
-
-.work img {
-	width: 100%;
-	border: 0 none;
-	opacity: 0.8;
-}
-
-.work .btn {
-	position: absolute;
-	bottom: 20px;
-	width: 100%;
-	padding: 15px;
-	margin-bottom: 0;
-	font-weight: 300;
-	line-height: 30px;
-	color: #fff;
-	text-align: center;
-	background: #18BC9C;
-	border-bottom: 0;
-}
-*/
 
 /* contact page */
 
-/*#contact-form ul {
-	margin-bottom: 20px;
-}
+	/* no custom styles needed  (relying on Bootstrap classes) */
 
-#contact-form li {
-	margin-bottom: 10px;
-}
 
-label,
-input[type=text],
-input[type=email],
-textarea {
-	display: block;
-	width: 100%;
-}
 
-input[type=text],
-input[type=email],
-textarea {
-	height: 35px;
-	padding: 0 10px;
-	font-size: 14px;
-	border: 1px solid #ddd;
-}
 
-textarea {
-	height: 200px;
-}
+/*media queries*/
 
-input[type=submit] {
-	padding: 10px 30px;
-	font-size: 18px;
-	color: #fff;
-	cursor: pointer;
-	background: #18BC9C;
-	border: 0 none;
-}
+/*  	For most of the responsiveness, I relied on bootstrap's built in styles rather than use media queries myself.
+	However, do match the requirements for the AboutMe section, where the Image profile is floated with the first paragraph in some viewport sizes, but not in others,
+	it seemed necessary to add some media queries.
+
+	Also, to make the navbar transaction from absolute positioning to static, it seemed seems necessary to use a media query.
 */
 
-
-
-
-/*
-
-
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 991px) {
 
 	.img-profile {
 		width: 100%;
-	}
-
-	.container {
-		max-width: 670px;
-
-	}
-
-	.wrapper {
-	}
-
-
-	.main-section {
-		max-width: 50%;
-	}
-	.sidebar {
-	}
-
-	.work {
-		width: 100%;
-	}
-
-}
-
-
-@media screen and (max-width: 768px) {
-
-	.img-profile {
-	}
-
-
-	.img-profile {
-		float: left;
-		width: 50%;
-	}
-
-	.container {
-	}
-
-	.main-section, .sidebar {
 		float: none;
-
 	}
-
-
-	.work {
-		width: 50%;
-	}
-
-	.sidebar {
-	}
-
 }
 
 
 
-
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 767px) {
 
 	.img-profile {
 		float: left;
+		width: 50%;
+	}
+
+	.nav-item {
+		margin-left: 0!important;
+	}
+}
+
+
+
+@media screen and (max-width: 575px) {
+
+	.img-profile {
 		width: 100%;
+		float: none;
 	}
 
+	/*
+		unstick the navbar so so that it will scroll out of screen, due to presumably small screen that would benefit from extra space
+		Note that in assignent, this feature is requested beginning at 640px viewport. That is where I enabled it for the ResponsivePortfolio project.
+		However, bootstrap grids do not seem to have defined col-SIZE-x elements to break at that width (https://getbootstrap.com/docs/4.0/layout/grid/#grid-options),
+		so I went with the the break that occurs at 575px/576px  (col-x is for width < 576, col-sm-x is for width >= 576px)
+	*/
 
-	.main-section, .sidebar, nav {
-		max-width: 600px;
-		width: 600px;
-	}
-
-	.sidebar {
-	}
 
 	nav {
-
-		float: left;
-		margin-left: 0;
-
-		margin: 5px auto;
-	}
-
-	#logo {
-		width: 100%;
-		display: block;
-	}
-
-	header {
 		position: static!important;
 	}
 
-	.main-section {
+	.container.wrapper {
+		padding-top: 0;
 	}
-
-	#main-container {
-		padding-top: 0px;
-	}
-
-	.wrapper, nav, .sidebar {
-		margin: 0  20px 0 20px;
-	}
-
 
 
 }
-*/
-
