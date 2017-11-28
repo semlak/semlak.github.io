@@ -37,6 +37,7 @@ body {
 }
 
 
+
 h1,
 h2,
 h3 {
@@ -179,44 +180,43 @@ body {
 	/*width: 100%;*/
 }
 
-.work .btn {
+.work h3 {
 	/* these are for the styling of the bottoms over the portfolio images (they were headers in assignment one) */
 	/* this looks good for the larger viewports, but gets messed up for smaller ones. Seems to be because of absolute sizes*/
 	position: absolute;
-	bottom: 20px;
-	left: 0;
-	width: 100%;
-	padding: 15px;
-	/*margin-bottom: 0;*/
-	font-weight: 300;
-	line-height: 30px;
-	color: #fff;
-
-}
-
-.work .btn {
-	/* these are for the styling of the bottoms over the portfolio images (they were headers in assignment one) */
-
-	/*  attempt to make them work at different viewport settings. Works okay for smaller viewports, but text verticle aligment fluctuates alot */
-	position: absolute;
+	/*top: 150px;*/
+	/*bottom: 20px;*/
 	bottom: 10%;
-	height: 30%;
-	left: 0;
+	/*top: 60%;*/
+	/*left: 0;*/
 	width: 100%;
+
 	padding: 15px;
-	/*margin-bottom: 0;*/
+	padding: 6% 2%;
+
+	margin-bottom: 0;
 	font-weight: 300;
 	/*line-height: 30px;*/
-	line-height: 15%;
+	line-height: 150%;
+	color: #fff;
+	background-color: #18BC9C;
+
+	text-align: center;
+	border-bottom: 0;
+
+}
+
+.work h3:hover {
+	background: #149a80;
+}
+
+/*.work .card-footer {
+	background-color: #18BC9C;
 	color: #fff;
 
 }
+*/
 
-
-
-.work .btn {
-	border-radius: 0;
-}
 
 
 /* contact page */
@@ -282,5 +282,9 @@ body {
 		padding-top: 0;
 	}
 
+	.container.wrapper, footer .container {
+		min-width: 560px;
+
+	}
 
 }
