@@ -16,12 +16,7 @@ body {
 	margin-top: 40px;
 }
 
-
-/*
-* .main-content, .sidebar {
-	margin-top: 40px;
-}
-*/
+/
 
 .card-header {
 	background: #fff;
@@ -124,12 +119,6 @@ body {
 	cursor: pointer;
 	opacity: 0.8;
 }
-
-
-	/*note that hover styling for captions over portfolio images is handled using a bootstrap btn class*/
-
-
-/* end hover styling */
 
 
 
@@ -283,7 +272,8 @@ body {
 	}
 
 	.container.wrapper, footer .container {
-		min-width: 560px;
+		/*min-width: 560px;*/
+		width: 500px;
 
 	}
 
