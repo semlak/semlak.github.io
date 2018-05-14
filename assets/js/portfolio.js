@@ -4,7 +4,8 @@ var data = [{
 	deployment: "https://international-intern.herokuapp.com/",
 	repository: "http://github.com/jstudenski/project-three",
 	title: "International Intern",
-	description: "International Intern: A full stack MERN application for students completing international internships to easily keep records of their internship in one location. App includes the ability to record daily activities as journal entries, photo storage, expense tracking, and linking these records to specified internship requirements. Technologies include Passport.js for secure authentication, Material-UI for Front-end components, Firebase cloud storage for phote storage, and Chartist for chart data visualization of expenses.",
+	description: "International Intern",
+	longDescription: "International Intern: A full stack MERN application for students completing international internships to easily keep records of their internship in one location. App includes the ability to record daily activities as journal entries, photo storage, expense tracking, and linking these records to specified internship requirements. Technologies include Passport.js for secure authentication, Material-UI for Front-end components, Firebase cloud storage for phote storage, and Chartist for chart data visualization of expenses.",
 	tags: ['react', 'fullstack', 'materialui', 'mongo', 'mern', 'passport'],
 }, {
 	src: "./assets/images/portfolio/fcc-voting-app-flux-herokuapp-com-chart.png",
@@ -78,7 +79,7 @@ $('document').ready(() => {
 				.attr('href', item.deployment)
 				.attr('title', item.title)
 				.append($("<h3 class='card-title'>")
-					.text(item.title)
+					.text(item.description)
 				)
 			);
 		const card = $("<div class='card text-center work'>")
