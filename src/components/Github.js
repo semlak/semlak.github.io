@@ -5,7 +5,6 @@ export default () => (
     <section className="github section">
       <div className="section-inner">
         <h2 className="heading">My GitHub</h2>
-        <div id="github-graph" className="github-graph" />
         <div id="ghfeed" className="ghfeed" />
       </div>
     </section>
