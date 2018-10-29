@@ -8,40 +8,38 @@ import Github from './Github';
 
 import Info from './Info';
 import Education from './Education';
-import BlogPosts from './BlogPosts';
+// import BlogPosts from './BlogPosts';
 import Credits from './Credits';
 
-
 export default class extends Component {
+  state = {
+  };
 
-	state = {
-	}
+  render() {
+    return (
+      <div>
+        <div className="container sections-wrapper">
+          <div className="row">
+            <div className="primary col-lg-8 col-12">
+              <AboutMe />
 
-	render() {
-		return <div>
-      <div class="container sections-wrapper">
-          <div class="row">
-              <div class="primary col-lg-8 col-12">
-                  <AboutMe />
-     
-                  <Projects /> 
-                  <Work />
-                  <Github />
-              </div>
+              <Projects />
+              <Work />
+            </div>
 
-              <div class="secondary col-lg-4 col-12">
-                <Info /> 
-                <Education />
-                { /* <BlogPosts /> */ }
-                <Credits />
-                 
-               
-              </div>    
+            <div className="secondary col-lg-4 col-12">
+              <Info />
+              <Education />
+              { /* <BlogPosts /> */ }
+
+              <Github />
+              <Credits />
+
+
+            </div>
           </div>
+        </div>
       </div>
-
-		</div>
-	}
-
-
+    );
+  }
 }
