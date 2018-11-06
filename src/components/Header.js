@@ -1,14 +1,46 @@
 import React, { Component } from 'react';
 
-export default class extends Component {
+import { Container, Button } from 'reactstrap';
+
+import Contact from './Contact';
+
+// export class extends Component {
+class Header extends Component {
   state = {
+    contactModalIsOpen: false,
+  };
+
+  toggle() {
+    console.log('toggling');
+    console.log('hey', 'state', this.state);
+    if (this.state && typeof this.state.contactModalIsOpen !== 'undefined') {
+      console.log('seems to be working');
+      this.setState({ contactModalIsOpen: !this.state.contactModalIsOpen });
+    }
   }
 
+  open() {
+    console.log('opening');
+    if (!this.state || !this.state.contactModalIsOpen) {
+      this.setState({ contactModalIsOpen: true });
+    }
+  }
+
+  close() {
+    console.log('closing', this.state);
+    if (this.state && this.state.contactModalIsOpen) {
+      this.setState({ contactModalIsOpen: false });
+    }
+  }
+
+
   render() {
+    this.toggle = this.toggle.bind(this);
+    // this.open();
     return (
       <div>
         <header className="header">
-          <div className="container clearfix">
+          <Container className="clearfix">
             <img
               className="profile-image img-fluid float-left"
               src="./assets/images/joseph_picture.jpg"
@@ -33,9 +65,12 @@ export default class extends Component {
                 <li className="list-inline-item"><a href="https://twitter.com/joseph_semlak" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter" /></a></li>
               </ul>
             </div>
-            <a className="btn btn-cta-primary float-right" href="https://themes.3rdwavemedia.com/" target="_blank" rel="noopener noreferrer"><i className="fas fa-paper-plane" /> Contact Me</a>
-          </div>
+            <Button color="info" onClick={this.toggle} className="float-right"><i className="fas fa-paper-plane" /> Contact Me</Button>
+          </Container>
         </header>
+        <Contact isOpen={this.state.contactModalIsOpen} close={this.close} open={this.open} toggle={this.toggle} className="contact" />
       </div>);
   }
 }
+
+export default Header;

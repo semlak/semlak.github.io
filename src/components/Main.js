@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-
+import { Container, Row, Col } from 'reactstrap';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
 import Work from './Work';
 import Github from './Github';
 
-
 import Info from './Info';
 import Education from './Education';
-// import BlogPosts from './BlogPosts';
 import Credits from './Credits';
+
 
 export default class extends Component {
   state = {
@@ -17,29 +16,21 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
-        <div className="container sections-wrapper">
-          <div className="row">
-            <div className="primary col-lg-8 col-12">
-              <AboutMe />
-
-              <Projects />
-              <Work />
-            </div>
-
-            <div className="secondary col-lg-4 col-12">
-              <Info />
-              <Education />
-              { /* <BlogPosts /> */ }
-
-              <Github />
-              <Credits />
-
-
-            </div>
-          </div>
-        </div>
-      </div>
+      <Container className="container sections-wrapper">
+        <Row>
+          <Col lg="8" sm="12" className="primary">
+            <AboutMe />
+            <Projects />
+            <Work />
+          </Col>
+          <Col lg="4" sm="12" className="secondary">
+            <Info />
+            <Education />
+            <Github />
+            <Credits />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
