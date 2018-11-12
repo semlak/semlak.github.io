@@ -2,7 +2,7 @@
   "name": "react-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://semlak.github.io/react-portfolio",
+  "homepage": "https://semlak.github.io/",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b master -d build --remote userpage",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
