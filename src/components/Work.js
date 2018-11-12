@@ -7,7 +7,8 @@ export default () => (
       <div className="content">
         <div className="item">
           <h3 className="title">Anti-Money Laundering Compliance Consultant - <span className="place"><a href="https://www.usbank.com" target="_blank" rel="noopener noreferrer">US Bank</a></span> <span className="year">Jan 2017 - Present</span></h3>
-          <p>Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
+          <p>Develope and maintain VBA Macros in Excel and Word for department use to automate tasks, read, parse, and cleanse data from multiple sources, create reports.</p>
+          <p>Gather transaction details, customer records, third-party information and analyze transactional data to formulate decision for outcome of investigations.</p>
         </div>
         <div className="item">
           <h3 className="title">Anti-Money Laundering Compliance Consultant - <span className="place"><a href="https://www.bremer.com" target="_blank" rel="noopener noreferrer">Bremer Bank</a></span> <span className="year">May 2015 - Oct 2015</span></h3>

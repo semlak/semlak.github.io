@@ -7,7 +7,7 @@ import Github from './Github';
 
 import Info from './Info';
 import Education from './Education';
-import Credits from './Credits';
+import Skills from './Skills';
 
 
 export default class extends Component {
@@ -26,8 +26,8 @@ export default class extends Component {
           <Col lg="4" sm="12" className="secondary">
             <Info />
             <Education />
+            <Skills />
             <Github />
-            <Credits />
           </Col>
         </Row>
       </Container>
