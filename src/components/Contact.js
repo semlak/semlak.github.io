@@ -182,7 +182,7 @@ export default class extends Component {
           <ModalFooter>
             <Button color="primary" onClick={this.submit}>Submit</Button>
             <Button color="secondary" onClick={this.props.toggle}>Cancel</Button>
-            <input type="submit" />
+            {/* <input type="submit" /> */}
           </ModalFooter>
         </Form>
       </Modal>
