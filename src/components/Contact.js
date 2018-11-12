@@ -12,14 +12,22 @@ const validateEmail = email => !!email.match("[a-zA-Z]+.*@.*[a-zA-Z]+.*[.][a-zA-
 
 
 export default class extends Component {
-  state = {
-    email: '',
-    message: '',
-    phoneNumber: '',
-    showEmailValidation: false,
-    showMessageValidation: false,
-    messageSuccessful: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      message: '',
+      phoneNumber: '',
+      showEmailValidation: false,
+      showMessageValidation: false,
+      messageSuccessful: false,
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.submit = this.submit.bind(this);
+    this.closeSuccessfulMessageModal = this.closeSuccessfulMessageModal.bind(this);
+    this.phoneNumberUpdate = this.phoneNumberUpdate.bind(this);
+    this.postMessage = this.postMessage.bind(this);
+  }
 
   // handleInputChange = event => this.setState({ [event.target.name]: event.target.value });
 
@@ -31,8 +39,12 @@ export default class extends Component {
   }
 
   postMessage = (data) => {
-    console.log('hey! in postMessage');
-    const data1 = { name: 'Joseph Semlak', _reply_to: 'jsemlak@yahoo.com', message: Object.keys(data).map(key => `${key}: ${data[key]}`).join('\n') };
+    console.log('hey! in postMessage', 'data', data);
+    const data1 = {
+      name: 'Joseph Semlak',
+      _reply_to: data.email,
+      message: Object.keys(data).map(key => `${key}: ${data[key]}`).join('\n')
+    };
     console.log('data1', data1);
     return axios.post('https://formspree.io/semlak@gmail.com', data1);
   }
@@ -48,7 +60,7 @@ export default class extends Component {
     else {
       this.setState({ [event.target.name]: event.target.value });
     }
-    if (event && event.target && event.target.name !== 'email') {
+    if (event && event.target && event.target.name !== 'email' && this.state.email.length > 0) {
       this.setState({ showEmailValidation: true });
     }
   }
@@ -102,11 +114,6 @@ export default class extends Component {
 
   render() {
     // console.log(this.state.phoneNumber, formatPhoneNumber(this.state.phoneNumber, "International"));
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.submit = this.submit.bind(this);
-    this.closeSuccessfulMessageModal = this.closeSuccessfulMessageModal.bind(this);
-    this.phoneNumberUpdate = this.phoneNumberUpdate.bind(this);
-    this.postMessage = this.postMessage.bind(this);
     const markEmailInputInvalid = this.state.showEmailValidation && !validateEmail(this.state.email);
     const markMessageInputInvalid = this.state.showMessageValidation && this.state.message.length < 1;
 
@@ -128,7 +135,7 @@ export default class extends Component {
         <ModalHeader toggle={this.props.toggle}>Contact Me</ModalHeader>
         <Form action="https://formspree.io/semlak@gmail.com" method="post">
           <ModalBody>
-            <p>You can contact me with this magical form!</p>
+            {/* <p>You can contact me with this magical form!</p> */}
             <FormGroup row>
               <Label for="email" sm={2}>Email</Label>
               <Col sm={10}>
