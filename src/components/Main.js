@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+// import PropTypes from 'prop-types';
+
 import AboutMe from './AboutMe';
 import Projects from './Projects';
 import Work from './Work';
@@ -8,28 +10,81 @@ import Github from './Github';
 import Info from './Info';
 import Education from './Education';
 import Skills from './Skills';
+import ResumeModal from './ResumeModal';
 
+// Container.propTypes = {
+//   fluid:  PropTypes.bool
+//   // applies .container-fluid class
+// }
+
+let data = {
+  phoneNumber: '217-417-5616',
+  emailObj: ['91', '12', 'moc', '12', 'liamg', '34', '82', 'kalmes', '56'],
+  email: null,
+  emailHeaders: {
+    subject: 'Question from the website',
+  },
+  portfolio: 'https://semlak.github.io',
+  resumeFilePath: './assets/pdfs/blueCreativeResume.pdf',
+};
+
+
+// const xena = 1;
+
+
+const rev = (arr) => { const a1 = arr; a1.reverse(); return a1; };
+
+const deObvEmail = (obv) => {
+  const arr = rev(
+    obv
+    .filter(e => e.match(/^[a-z._]{1,}$/))
+    .map(e => rev(e.split("")).join(""))
+  );
+  return [arr[0], "@", arr[1], "." & arr[2]].join("");
+};
+
+data = {...data, email: deObvEmail(data.emailObj)};
 
 export default class extends Component {
-  state = {
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      resumeModalIsOpen: false,
+    };
+    this.toggleResumeModal = this.toggleResumeModal.bind(this);
+  }
+
+  toggleResumeModal(e) {
+    console.log("in toggleResumeModal function");
+    if (e) e.preventDefault();
+    this.setState({ resumeModalIsOpen: !this.state.resumeModalIsOpen });
+  }
 
   render() {
     return (
-      <Container className="container sections-wrapper">
+      <Container className="sections-wrapper">
+        {/* <Education /> */}
         <Row>
           <Col lg="8" sm="12" className="primary">
+            {/* <Education /> */}
+            <Work />
             <AboutMe />
             <Projects />
-            <Work />
           </Col>
           <Col lg="4" sm="12" className="secondary">
-            <Info />
+            {/* <Info toggleResume={this.toggleResumeModal} resumeFilePath={resumeFilePath}/> */}
+            <Info toggleResume={this.toggleResumeModal} {...data} />
             <Education />
             <Skills />
             <Github />
           </Col>
         </Row>
+        <ResumeModal
+          className="resume"
+          isOpen={this.state.resumeModalIsOpen}
+          toggle={this.toggleResumeModal}
+          file={data.resumeFilePath}
+        />
       </Container>
     );
   }

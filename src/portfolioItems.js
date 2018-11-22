@@ -21,8 +21,8 @@ const data = [{
 }, {
   src: "./assets/images/portfolio/clicky.png",
   imageAlt: "Burger Ordering App",
-  deployment: "https://shrouded-temple-81450.herokuapp.com/",
-  repository: "https://github.com/semlak/ReactMemoryGame",
+  deployment: "https://semlak.github.io/react-memory-game",
+  repository: "https://github.com/semlak/react-memory-game",
   longDescription: "A Front-end application built with React.js, implementing a memory game with UI components, which manage component state and respond to user events.",
   title: "ReactJS Memory Game",
   description: "ReactJS Memory Game",
@@ -37,8 +37,8 @@ const data = [{
 }, {
   src: "./assets/images/portfolio/giphy-app.png",
   imageAlt: "MyGiphy App",
-  deployment: "https://semlak.github.io/MyGiphyApp",
-  repository: "https://github.com/semlak/MyGiphyApp",
+  deployment: "https://semlak.github.io/my-giphy-app",
+  repository: "https://github.com/semlak/my-giphy-app",
   title: "MyGiphy App",
   description: "MyGiphy App",
   longDescription: "A front-end application using jQuery/Bootstrap/Ajax calles to run and view searches through Giphy.com",

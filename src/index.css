@@ -1,4 +1,4 @@
-/*!   
+/*!
  * Template Name: Developer - Responsive Website Template for Developers
  * Version: 2.0
  * Author: Xiaoying Riley
@@ -373,7 +373,7 @@ a.dotted-link:hover {
   color: #666666;
 }
 
-.experience .item .title .year {
+.experience .item .year {
   color: #999;
   font-weight: normal;
 }
@@ -383,7 +383,13 @@ a.dotted-link:hover {
 .experience .year {
   display: inline-block;
   float: right;
-  color: red;
+  /* color: red; */
+}
+
+.experience .description {
+  margin-left: 2em;
+  margin-bottom: .5em;
+  /* margin-right: 2em; */
 }
 
 /* Git section */
@@ -519,7 +525,8 @@ a.dotted-link:hover {
 
 /* Education section */
 .education .item {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  margin-bottom: 15px;
 }
 
 .education .item:last-child {
@@ -531,22 +538,23 @@ a.dotted-link:hover {
   margin-top: 0;
 }
 
-.education .hanging-indent {
-  padding-left: 25px;
-  text-indent: -25px;
+/* .education .item .no-padding { */
+.no-padding {
+  padding: 0px;
 }
 
 .education .item .university {
   font-family: "Lato", arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: #999;
   font-weight: 600;
-  padding-left: 25px;
+  /* padding-left: 25px; */
 }
 
 .education .item .university .year {
   color: #b0b7bf;
   font-weight: 500;
+  text-align: right;
 }
 
 /* Language Section */
@@ -571,9 +579,19 @@ a.dotted-link:hover {
 }
 
 /* Contact Modal section */
-.contact .modal-content {
+/* .contact .modal-content { */
+.modal-content {
   border: 3px solid #276582;
   border-radius: 0px;
+}
+
+/* Resume modal section */
+.react-pdf__Document {
+  border: 3px solid #276582;
+}
+
+.react-pdf__Document .linkAnnotation {
+  display: none;
 }
 
 .contact img.react-phone-number-input__icon-image {
@@ -677,6 +695,40 @@ a.dotted-link:hover {
   color: #fb866a;
 }
 
+
+.resume .modal-content {
+   /* width: 650px; */
+  width: 925px;
+  
+}
+
+.resume .modal-body {
+  text-align: center;
+}
+
+
+.pdf-viewer {
+  display: inline-block;
+  min-width: 510px;
+  /* width: 600px; */
+  /* height: 810px; */
+  width: 885px;
+  height: 1175px;
+}
+
+@media (max-width: 577px) {
+  .container {
+    width: 510px;
+    min-width: 510px;
+  }
+  .pdf-viewer {
+    width: 510px;
+    min-width: 510px;
+  }
+
+
+}
+
 @media (max-width: 767.98px) {
   .header {
     text-align: center;
@@ -703,4 +755,13 @@ a.dotted-link:hover {
     width: 1360px;
     max-width: inherit;
   }
+}
+
+@media (min-width: 1500px) {
+  .container {
+    width: 1450px;
+    max-width: inherit;
+  }
+
+
 }

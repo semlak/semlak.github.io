@@ -3,6 +3,8 @@ import React from 'react';
 import { Row, Col } from 'reactstrap';
 import data from '../portfolioItems';
 
+
+/*
 const LatestProject = () => (
   <div className="item featured text-center">
     <h3 className="title"><a href="https://international-intern.herokuapp.com" target="_blank" rel="noopener noreferrer">International Intern</a></h3>
@@ -30,6 +32,7 @@ const LatestProject = () => (
     </div>
   </div>
 );
+*/
 
 const Project = props => (
   <Row className="item" key={props.id}>
