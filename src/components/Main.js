@@ -25,7 +25,7 @@ let data = {
     subject: 'Question from the website',
   },
   portfolio: 'https://semlak.github.io',
-  resumeFilePath: './pdfs/blueCreativeResume.pdf',
+  resumeFilePath: './pdfs/blue-creative-resume.pdf',
 };
 
 
@@ -37,13 +37,13 @@ const rev = (arr) => { const a1 = arr; a1.reverse(); return a1; };
 const deObvEmail = (obv) => {
   const arr = (
     obv
-    .filter(e => e.match(/^[a-z._]{1,}$/))
-    .map(e => rev(e.split("")).join(""))
+      .filter(e => e.match(/^[a-z._]{1,}$/))
+      .map(e => rev(e.split("")).join(""))
   );
   return [arr[2], "@", arr[1], ".", arr[0]].join("");
 };
 
-data = {...data, email: deObvEmail(data.emailObj)};
+data = { ...data, email: deObvEmail(data.emailObj) };
 
 export default class extends Component {
   constructor(props) {
