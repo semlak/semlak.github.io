@@ -29,8 +29,8 @@ const data = [{
 }, {
   src: "./assets/images/portfolio/rock-paper-scissors1.png",
   imageAlt: "Multiplayer Rock-Paper-Scissors Game deployed on GitHub Pages",
-  deployment: "https://semlak.github.io/RPS-Multiplayer/",
-  repository: "https://github.com/semlak/RPS-Multiplayer",
+  deployment: "https://semlak.github.io/multiplayer-rock-paper-scissors-firebase/",
+  repository: "https://semlak.github.io/multiplayer-rock-paper-scissors-firebase/",
   title: "Multiplayer Rock-Paper-Scissors",
   description: "Rock-Paper-Scissors",
   longDescription: "A Firebase application implementating a Mutli-Player Rock-Paper-Scissors Game. Features secure user authentication, saved game states on browser re-loading, and running score keeping.",
