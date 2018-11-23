@@ -13,13 +13,17 @@ import { Modal, ModalBody } from 'reactstrap';
 
 export default (props) => {
   let pdfURL = props.file;
-  if (/^http.*?github\.io/.test(document.URL)) {
+  if (!/localhost/.test(document.URL)) {
+    pdfURL = `../${props.file}`;
+    // pdfURL = `https://raw.githubusercontent.com/semlak/react-portfolio/gh-pages/${props.file}`;
+  }
+  else if (/^http.*?github\.io/.test(document.URL)) {
     // pdfURL = `https://raw.githubusercontent.com/semlak/react-portfolio/gh-pages/${props.file}`;
   }
   else if (/^http.*?herokuapp\.com/.test(document.URL)) {
     pdfURL = `https://joseph-semlak-portfolio.herokuapp.com/${props.file}`;
   }
-  console.log('hey, pdfURL', pdfURL);
+  console.log('hey1, pdfURL', pdfURL);
 
   return (
     <div className="pdf-modal-container">
