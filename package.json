@@ -2,7 +2,7 @@
   "name": "react-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://semlak.github.io",
+  "homepage": "https://semlak.github.io/react-portfolio/",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
