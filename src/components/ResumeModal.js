@@ -22,7 +22,8 @@ export default (props) => {
     <div className="pdf-modal-container">
       <Modal size="lg" isOpen={props.isOpen} toggle={props.toggle} className={props.className}>
         <ModalBody className={props.className}>
-          <iframe title="My Resume" className="pdf-viewer" src={pdfURL} />
+          {/* <iframe title="My Resume" className="pdf-viewer" src={pdfURL} /> */}
+          <embed title="My Resume" className="pdf-viewer" src={pdfURL} type="application/pdf" />
         </ModalBody>
       </Modal>
     </div>
