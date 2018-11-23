@@ -25,7 +25,7 @@ let data = {
     subject: 'Question from the website',
   },
   portfolio: 'https://semlak.github.io',
-  resumeFilePath: './assets/pdfs/blueCreativeResume.pdf',
+  resumeFilePath: './pdfs/blueCreativeResume.pdf',
 };
 
 
@@ -35,12 +35,12 @@ let data = {
 const rev = (arr) => { const a1 = arr; a1.reverse(); return a1; };
 
 const deObvEmail = (obv) => {
-  const arr = rev(
+  const arr = (
     obv
     .filter(e => e.match(/^[a-z._]{1,}$/))
     .map(e => rev(e.split("")).join(""))
   );
-  return [arr[0], "@", arr[1], "." & arr[2]].join("");
+  return [arr[2], "@", arr[1], ".", arr[0]].join("");
 };
 
 data = {...data, email: deObvEmail(data.emailObj)};
