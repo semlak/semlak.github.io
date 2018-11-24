@@ -10,7 +10,7 @@ import Github from './Github';
 import Info from './Info';
 import Education from './Education';
 import Skills from './Skills';
-import ResumeModal from './ResumeModal';
+import ResumeModal from './ResumeModal1';
 
 // Container.propTypes = {
 //   fluid:  PropTypes.bool
@@ -55,7 +55,7 @@ export default class extends Component {
   }
 
   toggleResumeModal(e) {
-    console.log("in toggleResumeModal function");
+    console.log("in toggleResumeModal function, setting to", !this.state.resumeModalIsOpen);
     if (e) e.preventDefault();
     this.setState({ resumeModalIsOpen: !this.state.resumeModalIsOpen });
   }
