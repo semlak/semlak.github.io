@@ -49,7 +49,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      resumeModalIsOpen: true,
+      resumeModalIsOpen: false,
     };
     this.toggleResumeModal = this.toggleResumeModal.bind(this);
   }
