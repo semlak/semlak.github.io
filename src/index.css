@@ -716,6 +716,11 @@ a.dotted-link:hover {
   height: 1175px;
 }
 
+.spinner-container {
+  height: 50px!important;
+  width: 50px!important;
+};
+
 @media (max-width: 577px) {
   .container {
     width: 510px;

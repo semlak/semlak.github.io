@@ -10,7 +10,7 @@ import Github from './Github';
 import Info from './Info';
 import Education from './Education';
 import Skills from './Skills';
-import ResumeModal from './ResumeModal1';
+import ResumeModal from './ResumeModal';
 
 // Container.propTypes = {
 //   fluid:  PropTypes.bool
@@ -49,7 +49,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      resumeModalIsOpen: false,
+      resumeModalIsOpen: true,
     };
     this.toggleResumeModal = this.toggleResumeModal.bind(this);
   }
