@@ -25,8 +25,12 @@ jQuery(document).ready(function($) {
 
 
   /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-  if ($("#ghfeed").length > 0) {
+  if (!/localhost/.test(document.URL) && $("#ghfeed").length > 0) {
+    console.log('retrieving github activity for #ghfeed');
     GitHubActivity.feed({ username: "semlak", selector: "#ghfeed" });
+  }
+  else {
+    console.log('not retrieving github activity for #ghfeed, due to being run on localhost.');
   }
 
 
