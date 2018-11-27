@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import shortid from 'shortid';
 // import PropTypes from 'prop-types';
 
 import AboutMe from './AboutMe';
@@ -12,12 +13,111 @@ import Education from './Education';
 import Skills from './Skills';
 import ResumeModal from './ResumeModal';
 
+
 // Container.propTypes = {
 //   fluid:  PropTypes.bool
 //   // applies .container-fluid class
 // }
+const aboutMeParagraphs = [
+  {
+    text: "In May of 2018, I completed the University of Minnesota Full-Stack Javascript Coding Bootcamp, and I am currently looking for a job as a full-stack JavaScript developer.",
+    id: shortid.generate(),
+  },
+  {
+    text: "I am currently focused in building MERN-stack applications (MongoDB/Express/React.js/Node), but I'm also comfortable with a variety of other technologies, including MySQL, Firebase, Bootstrap, Material-UI, Handlebars, and jQuery.",
+    id: shortid.generate(),
+  }
+];
+
+const educationData = [
+  {
+    fa: "fas fa-award",
+    award: "Full-Stack Web Development Certificate",
+    // award: "Full-Stack Web Dev Cert",
+    school: "University of Minnesota Twin Cities",
+    year: 2018,
+    id: shortid.generate(),
+  },
+  {
+    fa: "fas fa-graduation-cap",
+    award: "MS Computer Science",
+    school: "University of Minnesota Twin Cities",
+    year: "2016",
+    id: shortid.generate(),
+  },
+  {
+    fa: "fas fa-graduation-cap",
+    award: "BS Physics",
+    school: "University of Illinois at Urbana-Champaign",
+    year: "2004",
+    id: shortid.generate(),
+  },
+];
+
+const skillSets = [
+  { items: ['JavaScript', 'Node.js', 'Express'], skillLevel: 96, id: shortid.generate() },
+  { items: ['React.js'], skillLevel: 96, id: shortid.generate() },
+  { items: ['HTML5', 'CSS3', 'Bootstrap 4'], skillLevel: 90, id: shortid.generate() },
+  { items: ['MongoDB', 'MySQL'], skillLevel: 96, id: shortid.generate() },
+];
+
+
+const workData = [
+  {
+    title: "Anti-Money Laundering Compliance Consultant",
+    locationHREF: "https://wwww.usbank.com",
+    location: "US Bank",
+    workDuration: "Jan 2017 - Present",
+    id: shortid.generate(),
+    descriptions: [
+      {
+        text: "Develop and maintain VBA Macros in Excel and Word for department use to automate tasks, read, parse, and cleanse data from multiple sources, create reports.",
+        id: shortid.generate()
+      },
+      {
+        text: "Gather transaction details, customer records, third-party information and analyze transactional data to formulate decision for outcome of investigations.",
+        id: shortid.generate(),
+      },
+    ],
+  },
+  {
+    title: "Anti-Money Laundering Compliance Consultant",
+    locationHREF: "https://wwww.bremer.com",
+    location: "Bremer Bank",
+    workDuration: "May 2015 - Oct 2015",
+    id: shortid.generate(),
+    descriptions: [
+      {
+        text: "Worked independently to clear a large backlog of Anti-Money Laundering alerts.",
+        id: shortid.generate()
+      },
+      {
+        text: "Worked with specialists and investigative staff to complete written analysis and investigative reports for completing accurate and timely Suspicious Activity Reports.",
+        id: shortid.generate(),
+      },
+    ],
+  },
+  {
+    title: "Anti-Money Laundering Compliance Investigator",
+    locationHREF: "https://wwww.tcfbank.com",
+    location: "TCF National Bank",
+    workDuration: "Jan 2008 - Mar 2015",
+    id: shortid.generate(),
+    descriptions: [
+      {
+        text: "Developed VBA scripts in Word and Excel to assist in creation of spreadsheets for common scenarios, including VLOOKUPS, creation of pivot tables, data cleansing and parsing.",
+        id: shortid.generate()
+      },
+      {
+        text: "Wrote 20-30 three-page Suspicious Activity Reports per month, requiring strict attention to detail and clarity, timely completion, and following specific guidelines.",
+        id: shortid.generate(),
+      },
+    ],
+  },
+];
 
 let data = {
+  location: 'Mineapolis, US',
   phoneNumber: '217-417-5616',
   emailObj: ['91', '12', 'moc', '12', 'liamg', '34', '82', 'kalmes', '56'],
   email: null,
@@ -25,7 +125,11 @@ let data = {
     subject: 'Question from the website',
   },
   portfolio: 'https://semlak.github.io',
-  resumeFilePath: './pdfs/blue-creative-resume.pdf',
+  resumeFilePath: './assets/pdfs/blue-creative-resume.pdf',
+  skillSets,
+  workData,
+  educationData,
+  aboutMeParagraphs,
 };
 
 
@@ -51,11 +155,10 @@ export default class extends Component {
     this.state = {
       resumeModalIsOpen: false,
     };
-    this.toggleResumeModal = this.toggleResumeModal.bind(this);
   }
 
-  toggleResumeModal(e) {
-    console.log("in toggleResumeModal function, setting to", !this.state.resumeModalIsOpen);
+  toggleResumeModal = (e) => {
+    // console.log("in toggleResumeModal function, setting to", !this.state.resumeModalIsOpen);
     if (e) e.preventDefault();
     this.setState({ resumeModalIsOpen: !this.state.resumeModalIsOpen });
   }
@@ -63,19 +166,19 @@ export default class extends Component {
   render() {
     return (
       <Container className="sections-wrapper">
-        {/* <Education /> */}
+        {/* <Education data={data.educationData} /> */}
         <Row>
           <Col lg="8" sm="12" className="primary">
             {/* <Education /> */}
-            <Work />
-            <AboutMe />
+            <AboutMe paragraphs={data.aboutMeParagraphs} />
             <Projects />
+            <Work data={data.workData} />
           </Col>
           <Col lg="4" sm="12" className="secondary">
             {/* <Info toggleResume={this.toggleResumeModal} resumeFilePath={resumeFilePath}/> */}
             <Info toggleResume={this.toggleResumeModal} {...data} />
-            <Education />
-            <Skills />
+            <Education data={data.educationData} />
+            <Skills skillSets={data.skillSets} />
             <Github />
           </Col>
         </Row>

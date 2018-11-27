@@ -22,11 +22,11 @@ export default class extends Component {
       showMessageValidation: false,
       messageSuccessful: false,
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.submit = this.submit.bind(this);
-    this.closeSuccessfulMessageModal = this.closeSuccessfulMessageModal.bind(this);
-    this.phoneNumberUpdate = this.phoneNumberUpdate.bind(this);
-    this.postMessage = this.postMessage.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
+    // this.submit = this.submit.bind(this);
+    // this.closeSuccessfulMessageModal = this.closeSuccessfulMessageModal.bind(this);
+    // this.phoneNumberUpdate = this.phoneNumberUpdate.bind(this);
+    // this.postMessage = this.postMessage.bind(this);
   }
 
   // handleInputChange = event => this.setState({ [event.target.name]: event.target.value });

@@ -1,74 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 
-import { css } from 'react-emotion';
-import FadeLoader from 'react-spinners/FadeLoader';
+// import { css } from 'react-emotion';
+// import FadeLoader from 'react-spinners/FadeLoader';
 import { Modal, ModalBody } from 'reactstrap';
 
-
-const sleep = (ms) => {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: #276582;
-`;
-// import PropTypes from 'prop-types';
+import LoadingSpinner from './LoadingSpinner';
 
 
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Form, FormGroup, Label, Input, FormFeedback, } from 'reactstrap';
-// import 'react-phone-number-input/style.css';
-// import PhoneInput, { formatPhoneNumber } from 'react-phone-number-input';
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-
-// import { Container, Row, Col } from 'reactstrap';
-//
-// const validateEmail = email => !!email.match("[a-za-z]+.*@.*[a-za-z]+.*[.][a-za-z]+");
-
-
-const Element = (props) => {
-  return (
-    <div className="pdf-viewer">
-      <div className="spinner-container">
-        <FadeLoader
-          className={override}
-          sizeUnit={"px"}
-          size={60}
-          color={'#276582'}
-          loading={props.loading}
-        />
-      </div>
-      {props.loading ?
-          <h3>PDF is Loading...</h3> :
-          <embed title="My Resume" className="pdf-viewer" src={props.file} />
-      }
-    </div>
-  );
-  if (false && props.fileIsReady) {
-    return (
-      <embed
-        title="My Resume"
-        className="pdf-viewer"
-        src={props.file}
-      />
-    )
-  }
-  else {
-    return (
-      <div className="pdf-viewer">
-        <FadeLoader
-          className={override}
-          sizeUnit={"px"}
-          size={150}
-          color={'#276582'}
-          loading={true || props.loading}
-        />
-      </div>
-    )
-  }
-};
-
+// const override = css`
+// display: block;
+// margin: 0 auto;
+// border-color: #276582;
+// `;
 
 export default class extends React.Component {
   constructor(props) {
@@ -77,21 +23,21 @@ export default class extends React.Component {
     // let { file } = props;
     let { file: pdfURL } = props;
 
-    if (/^http.*?github\.io/.test(document.URL)) {
-      pdfURL = `https://semlak.github.io/react-portfolio/${props.file}`;
-    }
-    else if (!/localhost/.test(document.URL)) {
-      pdfURL = `../${props.file}`;
-      // pdfURL = `https://raw.githubusercontent.com/semlak/react-portfolio/gh-pages/${props.file}`;
-    }
-    else if (/^http.*?github\.io/.test(document.URL)) {
-      // pdfURL = `https://raw.githubusercontent.com/semlak/react-portfolio/gh-pages/${props.file}`;
-      pdfURL = `https://semlak.github.io/react-portfolio/${props.file}`;
-    }
-    else if (/^http.*?herokuapp\.com/.test(document.URL)) {
-      pdfURL = `https://joseph-semlak-portfolio.herokuapp.com/${props.file}`;
-    }
-    console.log('hey2, pdfURL', pdfURL);
+    // if (/^http.*?github\.io/.test(document.URL)) {
+    //   // pdfURL = `https://semlak.github.io/react-portfolio/${props.file}`;
+    // }
+    // else if (!/localhost/.test(document.URL)) {
+    //   // pdfURL = `../${props.file}`;
+    //   // pdfURL = `https://raw.githubusercontent.com/semlak/react-portfolio/gh-pages/${props.file}`;
+    // }
+    // else if (/^http.*?github\.io/.test(document.URL)) {
+    //   // pdfURL = `https://raw.githubusercontent.com/semlak/react-portfolio/gh-pages/${props.file}`;
+    //   pdfURL = `https://semlak.github.io/react-portfolio/${props.file}`;
+    // }
+    // else if (/^http.*?herokuapp\.com/.test(document.URL)) {
+    //   pdfURL = `https://joseph-semlak-portfolio.herokuapp.com/${props.file}`;
+    // }
+    // console.log('hey2, pdfURL', pdfURL);
 
     this.state = {
       fileIsReady: false,
@@ -100,14 +46,14 @@ export default class extends React.Component {
       isOpen: props.isOpen,
       loading: props.isOpen,
     };
-    console.log('state after constructor', this.state);
+    // console.log('state after constructor', this.state);
     if (props.isOpen) {
       this.getFile(this.state.pdfURL);
     }
   }
 
   componentWillReceiveProps(props) {
-    console.log('componentWillReceiveProps, props', props, 'state', this.state);
+    // console.log('in ResumeModal.componentWillReceiveProps, props:', props, '\nstate:', this.state);
     if (props.isOpen && !this.state.isOpen) {
       // modal has changed from closed to open
       if (!this.state.fileIsReady) {
@@ -117,7 +63,7 @@ export default class extends React.Component {
       }
     }
     if (props.isOpen !== this.state.isOpen) {
-      console.log('updating isOpen state to ', props.isOpen);
+      // console.log('updating isOpen state to ', props.isOpen);
       this.setState({ isOpen: props.isOpen });
     }
   }
@@ -140,43 +86,66 @@ export default class extends React.Component {
   getFile(url) {
     // help for downloading a PDF via axios and then displaying in react from https://medium.com/@storrisi/how-to-show-a-pdf-stream-on-a-react-client-without-any-library-36220fee60cb
     // console.log('running axios request', 'url', url); 
-    sleep(0).then(() => axios.get(url, {
-      responseType: 'blob'
+    const sleepTime = (/localhost/.test(document.URL)) ? 3000 : 0;
+    sleep(sleepTime).then(() => {
+      // console.log('actually running axios request now');
+      axios.get(url, {
+        responseType: 'blob'
+      })
+        .then((response) => {
+          // console.log('received axios response for pdf GET');
+          // Create a blob from the PDF Stream
+          const file = new Blob(
+            [response.data],
+            { type: 'application/pdf' }
+          );
+          // Build a URL from the file
+          const newURL = URL.createObjectURL(file);
+          // newURL = `data:application/pdf;headers=filename%3D${newURL};base64`
+          // Open the uRL on the new window
+          // console.log('newURL', newURL); 
+          // window.open (newURL);
+          this.setState({ file: newURL, fileIsReady: true, loading: false });
+        })
+        .catch((error) => {
+          console.log('error on axios request');
+          console.log(error);
+        })
     })
-      .then((response) => {
-        console.log('received axios response for pdf fetch');
-        // Create a blob from the PDF Stream
-        const file = new Blob(
-          [response.data],
-          { type: 'application/pdf' }
-        );
-        // Build a URL from the file
-        const newURL = URL.createObjectURL(file);
-        // newURL = `data:application/pdf;headers=filename%3D${newURL};base64`
-        // Open the uRL on the new window
-        // console.log('newURL', newURL); 
-        // window.open (newURL);
-        this.setState({ file: newURL, fileIsReady: true, loading: false });
-      })
-      .catch((error) => {
-        console.log('error on axios request');
-        console.log(error);
-      })
-    )
   }
 
   render() {
     const { props } = this;
-    const { isOpen, pdfURL, } = this.state;
-    console.log('rendering ResumeModal1', 'isOpen', isOpen, 'pdfURL', pdfURL, 'state', this.state);
+    const { isOpen, } = this.state;
+    const loadingMessage = 'PDF is loading...';
+    // const loadingMessageClass = '
+    const loadingMessageStyle = { textAlign: 'center', marginTop: '1em', size: '22px' }
+    const { loading, file } = this.state;
+    const spinnerProps = {
+      loadingMessage,
+      loadingMessageStyle,
+      loading,
+      // className: 'pdf-viewer',
+      delay: 500,
+      fadeIn: true,
+      id: "pdf-loading-spinner",
+    };
+
+    // console.log('rendering ResumeModal', 'isOpen', isOpen, 'state', this.state, 'spinnerProps', spinnerProps);
     return (
       <div className="pdf-modal-container">
         <Modal size="lg" isOpen={isOpen} toggle={props.toggle} className={props.className}>
           <ModalBody className={props.className}>
-            <Element {...this.state} />
+            <div className="pdf-viewer">
+              {loading ?
+                  <LoadingSpinner {...spinnerProps}/> :
+                  <embed title="My Resume" className="pdf-viewer" src={file} />
+              }
+            </div>
           </ModalBody>
         </Modal>
       </div>
     );
   }
 }
+

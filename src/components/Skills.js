@@ -1,13 +1,4 @@
 import React from 'react';
-import shortid from 'shortid';
-
-const skillSets = [
-  { items: ['JavaScript', 'Node.js', 'Express'], skillLevel: 96, id: shortid.generate() },
-  { items: ['React.js'], skillLevel: 96, id: shortid.generate() },
-  { items: ['HTML5', 'CSS3', 'Bootstrap 4'], skillLevel: 90, id: shortid.generate() },
-  { items: ['MongoDB', 'MySQL'], skillLevel: 96, id: shortid.generate() },
-];
-
 
 const SkillLine = (props) => {
   const numItems = props.items ? props.items.length : 0;
@@ -27,7 +18,7 @@ const SkillLine = (props) => {
   );
 };
 
-export default () => (
+export default ({ skillSets }) => (
   <aside className="skills aside section">
     <div className="section-inner">
       <h2 className="heading">Skills</h2>
