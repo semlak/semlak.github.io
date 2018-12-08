@@ -1,9 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import './index.css';
+// import ReactDOM from 'react-dom';
+import { render } from 'react-snapshot';
+import 'bootstrap/dist/css/bootstrap.css';
+import './index.css';
 import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+// ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
+registerServiceWorker();

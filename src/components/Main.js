@@ -21,11 +21,9 @@ import ResumeModal from './ResumeModal';
 const aboutMeParagraphs = [
   {
     text: "In May of 2018, I completed the University of Minnesota Full-Stack Javascript Coding Bootcamp, and I am currently looking for a job as a full-stack JavaScript developer.",
-    id: shortid.generate(),
   },
   {
     text: "I am currently focused in building MERN-stack applications (MongoDB/Express/React.js/Node), but I'm also comfortable with a variety of other technologies, including MySQL, Firebase, Bootstrap, Material-UI, Handlebars, and jQuery.",
-    id: shortid.generate(),
   }
 ];
 
@@ -36,29 +34,27 @@ const educationData = [
     // award: "Full-Stack Web Dev Cert",
     school: "University of Minnesota Twin Cities",
     year: 2018,
-    id: shortid.generate(),
   },
   {
     fa: "fas fa-graduation-cap",
     award: "MS Computer Science",
     school: "University of Minnesota Twin Cities",
     year: "2016",
-    id: shortid.generate(),
   },
   {
     fa: "fas fa-graduation-cap",
     award: "BS Physics",
     school: "University of Illinois at Urbana-Champaign",
     year: "2004",
-    id: shortid.generate(),
   },
 ];
 
+
 const skillSets = [
-  { items: ['JavaScript', 'Node.js', 'Express'], skillLevel: 96, id: shortid.generate() },
-  { items: ['React.js'], skillLevel: 96, id: shortid.generate() },
-  { items: ['HTML5', 'CSS3', 'Bootstrap 4'], skillLevel: 90, id: shortid.generate() },
-  { items: ['MongoDB', 'MySQL'], skillLevel: 96, id: shortid.generate() },
+  { items: ['JavaScript', 'Node.js', 'Express'], skillLevel: 96, },
+  { items: ['React.js'], skillLevel: 96, },
+  { items: ['HTML5', 'CSS3', 'Bootstrap 4'], skillLevel: 90, },
+  { items: ['MongoDB', 'MySQL'], skillLevel: 96, },
 ];
 
 
@@ -68,15 +64,12 @@ const workData = [
     locationHREF: "https://wwww.usbank.com",
     location: "US Bank",
     workDuration: "Jan 2017 - Present",
-    id: shortid.generate(),
     descriptions: [
       {
         text: "Develop and maintain VBA Macros in Excel and Word for department use to automate tasks, read, parse, and cleanse data from multiple sources, create reports.",
-        id: shortid.generate()
       },
       {
         text: "Gather transaction details, customer records, third-party information and analyze transactional data to formulate decision for outcome of investigations.",
-        id: shortid.generate(),
       },
     ],
   },
@@ -85,15 +78,12 @@ const workData = [
     locationHREF: "https://wwww.bremer.com",
     location: "Bremer Bank",
     workDuration: "May 2015 - Oct 2015",
-    id: shortid.generate(),
     descriptions: [
       {
         text: "Worked independently to clear a large backlog of Anti-Money Laundering alerts.",
-        id: shortid.generate()
       },
       {
         text: "Worked with specialists and investigative staff to complete written analysis and investigative reports for completing accurate and timely Suspicious Activity Reports.",
-        id: shortid.generate(),
       },
     ],
   },
@@ -102,15 +92,12 @@ const workData = [
     locationHREF: "https://wwww.tcfbank.com",
     location: "TCF National Bank",
     workDuration: "Jan 2008 - Mar 2015",
-    id: shortid.generate(),
     descriptions: [
       {
         text: "Developed VBA scripts in Word and Excel to assist in creation of spreadsheets for common scenarios, including VLOOKUPS, creation of pivot tables, data cleansing and parsing.",
-        id: shortid.generate()
       },
       {
         text: "Wrote 20-30 three-page Suspicious Activity Reports per month, requiring strict attention to detail and clarity, timely completion, and following specific guidelines.",
-        id: shortid.generate(),
       },
     ],
   },
@@ -132,10 +119,6 @@ let data = {
   aboutMeParagraphs,
 };
 
-
-// const xena = 1;
-
-
 const rev = (arr) => { const a1 = arr; a1.reverse(); return a1; };
 
 const deObvEmail = (obv) => {
@@ -149,6 +132,24 @@ const deObvEmail = (obv) => {
 
 data = { ...data, email: deObvEmail(data.emailObj) };
 
+const addIDs = (appData) => {
+  if (typeof appData !== 'object') {
+    return appData;
+  }
+  else if (Array.isArray(appData)) {
+    return appData.map(e => addIDs(e));
+  }
+  else {
+    // let newData = addIDs(appData);
+    const newData = appData;
+    Object.keys(appData).forEach((key) => {
+      newData[key] = addIDs(appData[key]);
+    });
+    return { ...newData, id: shortid.generate() };
+  }
+};
+
+data = addIDs(data);
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -158,7 +159,6 @@ export default class extends Component {
   }
 
   toggleResumeModal = (e) => {
-    // console.log("in toggleResumeModal function, setting to", !this.state.resumeModalIsOpen);
     if (e) e.preventDefault();
     this.setState({ resumeModalIsOpen: !this.state.resumeModalIsOpen });
   }

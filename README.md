@@ -1,4 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# React Portfolio Site
+This is a personal web portfolio site I created for my self. It is a mostly static website written as a React Application meant to be deployed with static backend (such as GitHub Pages).
+
+Deployed at: https://semlak.github.io.
+
+I based it off a static HTML Bootstrap 4 [portfolio template ](https://themes.3rdwavemedia.com/bootstrap-templates/portfolio/free-bootstrap-theme-for-web-developers/) designed by UX designer [Xiaoying Riley](https://themes.3rdwavemedia.com/) at 3rd Wave Media for developers and is FREE under the Creative Commons Attribution 3.0 License.
+
+
+This is not really a project meant to be used by other people, as the components are not particularly reusable, but one could clone the project and change the data to use for their own portfolio or other needs.
+
+To use, with git installred, first clone the repository.
+Then, with yarn (or npm) and node.js installed, install dependencies, and run.
+
+```
+git clone https://github.com/semlak/react-portfolio.git
+cd react-portfolio
+# (or whatever directory you specified)
+yarn install
+# or npm install
+
+yarn start
+# or npm start
+```
+
+
+For information on deployment, continue reading below. As this project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app), the rest of this README is what was generated from that creation and left here for reference.
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
