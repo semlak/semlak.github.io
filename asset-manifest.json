@@ -1,6 +1,22 @@
 {
   "main.css": "static/css/main.ac1fedc4.css",
   "main.css.map": "static/css/main.ac1fedc4.css.map",
-  "main.js": "static/js/main.c6fcd5d3.js",
-  "main.js.map": "static/js/main.c6fcd5d3.js.map"
+  "main.js": "static/js/main.57eb48e4.js",
+  "main.js.map": "static/js/main.57eb48e4.js.map",
+  "static/media/burger.png": "static/media/burger.085383c4.png",
+  "static/media/clicky.png": "static/media/clicky.c063ec56.png",
+  "static/media/consoleHangman.png": "static/media/consoleHangman.438db2c6.png",
+  "static/media/fcc-pomodoro-app.png": "static/media/fcc-pomodoro-app.1854d9ef.png",
+  "static/media/fcc-tic-tac-toe.png": "static/media/fcc-tic-tac-toe.f36cbd49.png",
+  "static/media/fcc-voting-app-flux-herokuapp-com-chart.png": "static/media/fcc-voting-app-flux-herokuapp-com-chart.3ba9da63.png",
+  "static/media/fcc-weather-app.png": "static/media/fcc-weather-app.c67ca612.png",
+  "static/media/friendFinder1.png": "static/media/friendFinder1.901dd518.png",
+  "static/media/friendFinder_640_480.png": "static/media/friendFinder_640_480.696254e8.png",
+  "static/media/giphy-app.png": "static/media/giphy-app.e9a85460.png",
+  "static/media/internationalIntern.png": "static/media/internationalIntern.c932a081.png",
+  "static/media/joseph_picture.jpg": "static/media/joseph_picture.b9fa734a.jpg",
+  "static/media/liri.png": "static/media/liri.c3fcf704.png",
+  "static/media/mockAmazon.png": "static/media/mockAmazon.48df2050.png",
+  "static/media/rock-paper-scissors1.png": "static/media/rock-paper-scissors1.fd6f5cf3.png",
+  "static/media/technics-q-c-640-480-9.jpg": "static/media/technics-q-c-640-480-9.d16d91d1.jpg"
 }
