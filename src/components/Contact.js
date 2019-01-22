@@ -39,13 +39,13 @@ export default class extends Component {
   }
 
   postMessage = (data) => {
-    console.log('hey! in postMessage', 'data', data);
+    // console.log('hey! in postMessage', 'data', data);
     const data1 = {
       name: 'Joseph Semlak',
       _reply_to: data.email,
       message: Object.keys(data).map(key => `${key}: ${data[key]}`).join('\n')
     };
-    console.log('data1', data1);
+    // console.log('data1', data1);
     return axios.post('https://formspree.io/semlak@gmail.com', data1);
   }
 
@@ -77,12 +77,13 @@ export default class extends Component {
         phoneNumber: this.state.phoneNumber,
         message: this.state.message,
       };
-      console.log('data', data);
+      // console.log('data', data);
       const post = this.postMessage(data);
-      console.log('post', post);
+      // console.log('post', post);
       post
-        .then((response) => {
-          console.log('response', response);
+        .then(() => {
+        // .then((response) => {
+          // console.log('response', response);
           this.setState({
             email: '',
             message: '',

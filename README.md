@@ -5,10 +5,11 @@ Deployed at: https://semlak.github.io.
 
 I based it off a static HTML Bootstrap 4 [portfolio template ](https://themes.3rdwavemedia.com/bootstrap-templates/portfolio/free-bootstrap-theme-for-web-developers/) designed by UX designer [Xiaoying Riley](https://themes.3rdwavemedia.com/) at 3rd Wave Media for developers and is FREE under the Creative Commons Attribution 3.0 License.
 
+Technologies used include React, Bootstrap 4 (with react-strap), react-snapshot (for generating static html file), and others.
 
 This is not really a project meant to be used by other people, as the components are not particularly reusable, but one could clone the project and change the data to use for their own portfolio or other needs.
 
-To use, with git installred, first clone the repository.
+To use, with git installed, first clone the repository.
 Then, with yarn (or npm) and node.js installed, install dependencies, and run.
 
 ```

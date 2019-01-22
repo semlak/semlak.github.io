@@ -1,7 +1,10 @@
 import React from 'react';
 
 import { Row, Col } from 'reactstrap';
-import data from '../portfolioItems';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+// import data from '../portfolioItems';
 
 
 /*
@@ -43,21 +46,22 @@ const Project = props => (
       <h3 className="title"><a href={props.repository} target="_blank" rel="noopener noreferrer">{props.title}</a></h3>
       <p className="mb-2">{props.longDescription}</p>
       <p>
-        <a className="more-link" href={props.deployment} target="_blank" rel="noopener noreferrer"><i className="fas fa-external-link-alt" />Demo</a>
-        <a className="more-link" href={props.repository} target="_blank" rel="noopener noreferrer"><i className="fas fa-external-link-alt" />Repository</a>
+        <a className="more-link" href={props.deployment} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} disabled={!props.deployment} />Demo</a>
+        <a className="more-link" href={props.repository} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Repository</a>
 
       </p>
     </Col>
   </Row>
 );
 
-export default () => (
+export default ({ projectItems }) => (
   <section className="latest section">
     <div className="section-inner">
       <h2 className="heading">Latest Projects</h2>
       <div className="content">
         {/* <hr className="divider" /> */}
-        {data.slice(0, 5).map(project => Project(project))}
+        {/* {data.slice(0, 5).map(project => Project(project))} */}
+        {projectItems.slice(0, 6).map(project => Project(project))}
 
       </div>
     </div>
