@@ -1,10 +1,11 @@
 {
   "main.css": "static/css/main.b988faa6.css",
   "main.css.map": "static/css/main.b988faa6.css.map",
-  "main.js": "static/js/main.57eb48e4.js",
-  "main.js.map": "static/js/main.57eb48e4.js.map",
+  "main.js": "static/js/main.ba1e64e5.js",
+  "main.js.map": "static/js/main.ba1e64e5.js.map",
   "static/media/burger.png": "static/media/burger.085383c4.png",
   "static/media/clicky.png": "static/media/clicky.c063ec56.png",
+  "static/media/consoleHangman.gif": "static/media/consoleHangman.cad24e40.gif",
   "static/media/consoleHangman.png": "static/media/consoleHangman.438db2c6.png",
   "static/media/fcc-pomodoro-app.png": "static/media/fcc-pomodoro-app.1854d9ef.png",
   "static/media/fcc-tic-tac-toe.png": "static/media/fcc-tic-tac-toe.f36cbd49.png",
