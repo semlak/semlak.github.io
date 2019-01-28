@@ -37,31 +37,68 @@ const LatestProject = () => (
 );
 */
 
-const Project = props => (
-  <Row className="item" key={props.id}>
-    <a className="col-md-4 col-12" href={props.deployment} target="_blank" rel="noopener noreferrer">
-      <img className="img-fluid project-image" src={props.src} alt={props.title} />
+const TechItem = ({ text, techData }) => {
+  const textLinkRegex = /(\S+)[*]/;
+  if (text && text.length > 0 && text.match(textLinkRegex)) {
+    // console.log(text.match(textLinkRegex));
+    const result = text.match(textLinkRegex);
+    console.log('text', text, 'result:', result);
+    if (result && result.length > 1 && techData && techData[result[1]]) {
+      const newText = result[1];
+      const { url, purpose } = techData[newText];
+      return <li><a href={url} rel="noopener noreferrer">{newText}</a>{purpose ? `: ${purpose}` : ''}</li>;
+    }
+    // for (var i in result) {
+    //   console.log('i', i, 'result[i]', result[i]);
+    // }
+  }
+  return (<li>{text}</li>);
+}
+
+const Tech = ({ tech, techData }) => {
+  // console.log("tectData:", techData); 
+  if (tech && tech.length > 0) {
+    return (
+      <div>
+      <p>Technologies Include:</p>
+      <ul className="technologies">
+        {/* {tech.map(item => <li key={item.toString()}>{item}</li>)} */}
+        {tech.map(item => <TechItem key={item.toString()} text={item} techData={techData} />)}
+      </ul>
+      </div>
+    );
+  }
+  return <div />;
+};
+
+const Project = ({ id, deployment, repository, longDescription, tech, techData, src, title }) => (
+  <Row className="item">
+    <a className="col-md-4 col-12" href={deployment} target="_blank" rel="noopener noreferrer">
+      <img className="img-fluid project-image" src={src} alt={title} />
     </a>
     <Col md="8" sm="12" className="desc">
-      <h3 className="title"><a href={props.repository} target="_blank" rel="noopener noreferrer">{props.title}</a></h3>
-      <p className="mb-2">{props.longDescription}</p>
+      <h3 className="title"><a href={repository} target="_blank" rel="noopener noreferrer">{title}</a></h3>
+      <p className="mb-2">{longDescription}</p>
+      {/* {longDescription && longDescription.length > 0 ? longDescription.split(". ").map(text => <p className="mb-2" key={text}>{text}</p>) : ""} */}
+      <Tech tech={tech} techData={techData} />
       <p>
-        <a className="more-link" href={props.deployment} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} disabled={!props.deployment} />Demo</a>
-        <a className="more-link" href={props.repository} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Repository</a>
+        {deployment ? <a className='more-link' href={deployment} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Demo</a> : "" }
+        <a className="more-link" href={repository} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Repository</a>
 
       </p>
     </Col>
   </Row>
 );
 
-export default ({ projectItems }) => (
+export default ({ projectItems, techData = {} }) => (
   <section className="latest section">
     <div className="section-inner">
       <h2 className="heading">Latest Projects</h2>
       <div className="content">
         {/* <hr className="divider" /> */}
         {/* {data.slice(0, 5).map(project => Project(project))} */}
-        {projectItems.slice(0, 6).map(project => Project(project))}
+        {/* {projectItems.slice(0, 6).map(project => Project(project))} */}
+        {projectItems.slice(0, 6).map(project => <Project { ...project } key={project.id} techData={techData} />)}
 
       </div>
     </div>

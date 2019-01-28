@@ -50,7 +50,7 @@ class Header extends Component {
             />
             <div className="profile-content float-left">
               <h1 className="name">Joseph Semlak</h1>
-              <h2 className="desc">Fullstack Javascript Web Application Developer</h2>
+              <h2 className="desc">Full-Stack JavaScript Web Application Developer</h2>
               <ul className="social list-inline">
                 {social.map(e => (
                   <li className="list-inline-item" key={e.id}>

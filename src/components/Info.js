@@ -40,7 +40,7 @@ export default props => (
           <Row className="info-row">
             {/* <Col xs="1"><i className="fas fa-external-link-alt" /></Col> */}
             <Col xs="1"><FontAwesomeIcon icon={faExternalLinkAlt} /></Col>
-            <Col><span className="sr-only">Resume:</span><a href={props.resumeFilePath} onClick={props.toggleResume} target="_blank" rel="noopener noreferrer">Resume</a>
+            <Col><span className="sr-only">Resume:</span><a href={props.resumeFilePath} onClick={props.toggleResume} target="_blank" rel="noopener noreferrer" alt="PDF file of resume" title="Click to open in window; right click to download">Resume</a>
             </Col>
           </Row>
         </Container>

@@ -36,7 +36,7 @@ export default class extends Component {
           <Col lg="8" sm="12" className="primary">
             {/* <Education /> */}
             <AboutMe paragraphs={data.aboutMeParagraphs} />
-            <Projects projectItems={data.projectItems} />
+            <Projects projectItems={data.projectItems} techData={data.techData} />
             <Work data={data.workData} />
           </Col>
           <Col lg="4" sm="12" className="secondary">
