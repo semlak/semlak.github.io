@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
@@ -71,22 +71,35 @@ const Tech = ({ tech, techData }) => {
   return <div />;
 };
 
-const Project = ({ id, deployment, repository, longDescription, tech, techData, src, title }) => (
+const Project = ({ deployment, repository, longDescription, tech, techData, src, title }) => (
   <Row className="item">
-    <a className="col-md-4 col-12" href={deployment} target="_blank" rel="noopener noreferrer">
-      <img className="img-fluid project-image" src={src} alt={title} />
-    </a>
-    <Col md="8" sm="12" className="desc">
-      <h3 className="title"><a href={repository} target="_blank" rel="noopener noreferrer">{title}</a></h3>
-      <p className="mb-2">{longDescription}</p>
-      {/* {longDescription && longDescription.length > 0 ? longDescription.split(". ").map(text => <p className="mb-2" key={text}>{text}</p>) : ""} */}
-      <Tech tech={tech} techData={techData} />
-      <p>
-        {deployment ? <a className='more-link' href={deployment} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Demo</a> : "" }
-        <a className="more-link" href={repository} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Repository</a>
+    <Container>
+      <Row>
+        <h3 className="title"><a href={repository} target="_blank" rel="noopener noreferrer">{title}</a></h3>
+      </Row>
+      <Row>
+        <Col md="4" sm="12">
+          <a href={null} target="_blank" rel="noopener noreferrer">
+            <img className="img-fluid project-image" src={src} alt={title} />
+          </a>
+        </Col>
+        <Col md="8" sm="12" className="desc">
+          {/* <p className="mb-2">{longDescription}</p> */}
+          <p>{longDescription}</p>
+          {/* {longDescription && longDescription.length > 0 ? longDescription.split(". ").map(text => <p className="mb-2" key={text}>{text}</p>) : ""} */}
+          <p>
+            {deployment ? <a className='more-link' href={deployment} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Demo</a> : "" }
+            <a className="more-link" href={repository} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Repository</a>
 
-      </p>
-    </Col>
+          </p>
+        </Col>
+      </Row>
+      {tech ? <Row><Col><Tech tech={tech} techData={techData} /></Col></Row> : "" }
+      {/* <Col>                                      */}
+      {/*   <Tech tech={tech} techData={techData} /> */}
+      {/* </Col>                                     */}
+
+    </Container>
   </Row>
 );
 

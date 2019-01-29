@@ -176,7 +176,7 @@ const projectItems = [{
   longDescription: "A Firebase application implementing a multiplayer Rock-Paper-Scissors Game. Features secure user authentication, saved game states on browser re-loading, and running score keeping.",
   tech: [
     'firebase*: provides database and authentication',
-    'Authentication via either a email/password login or Github/Google Oauth (through Firebase)',
+    'Authentication via either a email/password login or Github/Google OAuth (through Firebase)',
     'Bootstrap 4',
     'jQuery',
   ],
@@ -208,7 +208,7 @@ const projectItems = [{
   repository: "https://github.com/semlak/my-giphy-app",
   title: "My Giphy App",
   description: "My Giphy App",
-  longDescription: "A front-end application using jQuery/Bootstrap/ajax to run and view searches through Giphy.com",
+  longDescription: "A front-end application using jQuery/Bootstrap/Ajax to run and view searches through Giphy.com",
 }, {
   src: images['mockAmazon.png'],
   imageAlt: "MySQL MockAmazon App",
@@ -241,12 +241,12 @@ const techData = {
   "react-router": { url: 'https://reacttraining.com/react-router/' },
   "Passport.js": { url: 'http://www.passportjs.org/', purpose: 'for secure authentication' },
   'Recharts.js': { url: 'http://recharts.org', purpose: 'for chart data visualizations of poll results' },
-  'inquirer': { url: 'https://github.com/SBoudrias/Inquirer.js/', purpose: 'for receiving user input' },
-  "chalk": { url: 'https://www.npmjs.com/package/chalk', purpose: "for coloring and formatting of console text" },
-  "figlet": { url: 'https://www.npmjs.com/package/figlet', purpose: "for splash screen text" },
-  "boxen": { url: 'https://www.npmjs.com/package/boxen', purpose: "for adding boxes to application" },
-   'Firebase': { url: 'https://firebase.google.com/', purpose: 'for cloud storage of photos' },
-   'firebase': { url: 'https://firebase.google.com/', purpose: 'provides database and authentication' },
+  inquirer: { url: 'https://github.com/SBoudrias/Inquirer.js/', purpose: 'for receiving user input' },
+  chalk: { url: 'https://www.npmjs.com/package/chalk', purpose: "for coloring and formatting of console text" },
+  figlet: { url: 'https://www.npmjs.com/package/figlet', purpose: "for splash screen text" },
+  boxen: { url: 'https://www.npmjs.com/package/boxen', purpose: "for adding boxes to application" },
+  Firebase: { url: 'https://firebase.google.com/', purpose: 'for cloud storage of photos' },
+  firebase: { url: 'https://firebase.google.com/', purpose: 'provides database and authentication' },
 };
 
 let data = {

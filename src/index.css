@@ -220,7 +220,7 @@ a.dotted-link:hover {
 /* About Section */
 /* Latest Section */
 .latest .item {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .latest .item .title {
@@ -351,6 +351,13 @@ a.dotted-link:hover {
 
 .latest .project-image {
   border: 1px solid #276582;
+}
+
+/* .latest:not(:first-child) { */
+.latest .item:not(:first-child) {
+  /* background-color: black; */
+  border-top: 1px solid #276582;
+  padding-top: 20px;
 }
 
 /* Work Section */
@@ -812,4 +819,12 @@ a.dotted-link:hover {
   }
 
 
+}
+
+.project-image {
+ /* max-width: 300px; */
+}
+.primary {
+  /* use this to keep main column from getting to small until more work done */
+  min-width: 540px;
 }
