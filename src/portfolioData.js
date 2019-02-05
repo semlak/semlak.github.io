@@ -49,6 +49,7 @@ const educationData = [
     // award: "Full-Stack Web Dev Cert",
     school: "University of Minnesota Coding Bootcamp ",
     year: 2018,
+    link: 'https://umn.credly.com/member-badges/14980968',
   },
   {
     // fa: "fas fa-graduation-cap",

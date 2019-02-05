@@ -24,6 +24,15 @@ const EducationItem = props => (
         <Col className="no-padding" lg="9" md="5" sm="8" xs="9"><h4 className="university">{props.school}</h4></Col>
         <Col className="no-padding" lg="2" md="1" sm="1" xs="1"><h4 className="university year">{props.year}</h4></Col>
       </Row>
+      {/* { props.link ? (
+        *   <Row>
+        *     <Col className="no-padding" lg="1" md="1" sm="1" xs="1" />
+        *     <Col className="no-padding" lg="9" md="5" sm="8" xs="9">
+        *       (<a className="more-link university" href={props.link} target="_blank" rel="noopener noreferrer">credential</a>)
+        *     </Col>
+        *   </Row>
+        *   ) : ""
+        * } */}
     </h3>
   </Container>
 );

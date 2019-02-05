@@ -79,9 +79,9 @@ const Project = ({ deployment, repository, longDescription, tech, techData, src,
       </Row>
       <Row>
         <Col md="4" sm="12">
-          <a href={null} target="_blank" rel="noopener noreferrer">
+          <div href={null} target="_blank" rel="noopener noreferrer">
             <img className="img-fluid project-image" src={src} alt={title} />
-          </a>
+          </div>
         </Col>
         <Col md="8" sm="12" className="desc">
           {/* <p className="mb-2">{longDescription}</p> */}
