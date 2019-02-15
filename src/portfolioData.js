@@ -5,7 +5,7 @@ import { faLinkedinIn, faGithubAlt, faStackOverflow, faTwitter } from '@fortawes
 
 export const social = [
   {
-    url: "https://www.linkedin.com/in/joseph-semlak-ba829898/",
+    url: "https://www.linkedin.com/in/joseph-semlak/",
     // fa: "fab fa-linkedin-in",
     fa: faLinkedinIn,
   },
@@ -141,13 +141,14 @@ const projectItems = [{
   longDescriptionOld: "A full-stack MERN application for students completing international internships to easily keep records of their internship in one location. App includes the ability to record daily activities as journal entries, photo storage, expense tracking, and linking these records to specified internship requirements. Technologies include Passport.js for secure authentication, Material-UI for Front-end components, Firebase cloud storage for photos, and Chartist for chart data visualization of expenses. (Firebase is used partially due to fact that free heroku deployments do not support having the persistence storage needed for photo storage.",
   longDescription: "A full-stack MERN application for students completing international internships to easily keep records of their internship in one location. App includes the ability to record daily activities as journal entries, photo storage, expense tracking, and linking these records to specified internship requirements.",
   tech: [
-    "MERN Stack",
+    "MERN Stack: (MongoDB, Express, React.js, and Node.js",
     "react-router*",
     "Passport.js*: for secure authentication",
     'Material-UI: for front-end components',
     'Firebase*: for cloud storage of photos',
     'Chartist.js: for chart data visualizations of expenses',
   ],
+  visible: true,
   tags: ['react', 'fullstack', 'material-ui', 'mongo', 'mern', 'passport', 'node.js', 'express'],
 }, {
   src: images['fcc-voting-app-flux-herokuapp-com-chart.png'],
@@ -159,14 +160,36 @@ const projectItems = [{
   longDescriptionOld: "A full-stack MERN Application where you can create Polls and vote on them. Also uses Passport.js, Recharts.js, React Router, React-bootstrap, and a Flux Architecture.",
   longDescription: "A full-stack MERN Application where you can create Polls and vote on them. The Uni-directional data flow is handled with a Flux Architecture (implemented without Redux).",
   tech: [
-    "MERN Stack",
-    "react-router*",
-    "Passport.js*: for secure authentication",
+    // 'MERN Stack',
+    "MERN Stack: (MongoDB, Express, React.js, and Node.js",
+    'Flux Architecture: for handling action creators and unidirectional data flow',
+    'react-router*',
+    'Passport.js*: for secure authentication',
     'Bootstrap 3 (and react-bootstrap): for front-end components',
     'Recharts.js*: for chart data visualizations of poll results',
-    'Flux Architecture',
   ],
   tags: ['react', 'fullstack', 'bootstrap', 'mongo', 'mern', 'passport', 'node.js', 'express'],
+  visible: true,
+}, {
+  src: images['rock-paper-scissors1.png'],
+  imageAlt: 'FireRPS: A multiplayer Rock-Paper-Scissors Game built with React.js, Redux.js, and Firebase',
+  deployment: 'https://semlak.github.io/rock-paper-scissors-firebase-react-redux/app',
+  repository: 'https://github.com/semlak/rock-paper-scissors-firebase-react-redux/',
+  // title: "Multiplayer Rock-Paper-Scissors",
+  title: 'FireRPS: A multiplayer Rock-Paper-Scissors Game built with React.js, Redux.js, and Firebase',
+  description: 'Rock-Paper-Scissors',
+  longDescription: 'A multiplayer Rock-Paper-Scissors Game. Built with React.js, Redux.js, and Firebase, with testing through jest/mocha. Features secure user authentication, saved game states on browser re-loading, and running score keeping.',
+  tech: [
+    'react.js/redux.js',
+    'react-router*',
+    'firebase*: provides database and authentication',
+    'Authentication via email/password login or Github/Google OAuth (through Firebase)',
+    'Bootstrap 4/react-strap',
+    'jest/mocha: for testing',
+    'react-avatar: for user avatar creation/display',
+    'react-thunk: Redux middleware for handling async action creators and side effects',
+  ],
+  visible: true,
 }, {
   src: images['rock-paper-scissors1.png'],
   imageAlt: "Multiplayer Rock-Paper-Scissors Game deployed on GitHub Pages",
@@ -181,6 +204,7 @@ const projectItems = [{
     'Bootstrap 4',
     'jQuery',
   ],
+  visible: false,
 }, {
   src: images['consoleHangman.gif'],
   imageAlt: 'Console Hangman Game',
@@ -194,6 +218,7 @@ const projectItems = [{
     "boxen*",
   ],
   description: "Console Hangman",
+  visible: true,
 }, {
   src: images['clicky.png'],
   imageAlt: "React-based Memory Game",
@@ -202,6 +227,7 @@ const projectItems = [{
   longDescription: "A Front-end application built with React.js, implementing a memory game with UI components, which manage component state and respond to user events.",
   title: "React.js Memory Game",
   description: "A Memory Game built with React.JS",
+  visible: true,
 }, {
   src: images['giphy-app.png'],
   imageAlt: "My Giphy App",
@@ -210,6 +236,7 @@ const projectItems = [{
   title: "My Giphy App",
   description: "My Giphy App",
   longDescription: "A front-end application using jQuery/Bootstrap/Ajax to run and view searches through Giphy.com",
+  visible: true,
 }, {
   src: images['mockAmazon.png'],
   imageAlt: "MySQL MockAmazon App",

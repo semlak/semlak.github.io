@@ -42,7 +42,7 @@ const TechItem = ({ text, techData }) => {
   if (text && text.length > 0 && text.match(textLinkRegex)) {
     // console.log(text.match(textLinkRegex));
     const result = text.match(textLinkRegex);
-    console.log('text', text, 'result:', result);
+    // console.log('text', text, 'result:', result);
     if (result && result.length > 1 && techData && techData[result[1]]) {
       const newText = result[1];
       const { url, purpose } = techData[newText];
@@ -111,7 +111,8 @@ export default ({ projectItems, techData = {} }) => (
         {/* <hr className="divider" /> */}
         {/* {data.slice(0, 5).map(project => Project(project))} */}
         {/* {projectItems.slice(0, 6).map(project => Project(project))} */}
-        {projectItems.slice(0, 6).map(project => <Project { ...project } key={project.id} techData={techData} />)}
+        {/* {projectItems.slice(0, 6).map(project => <Project { ...project } key={project.id} techData={techData} />)} */}
+        {projectItems.filter(project => project.visible).map(project => <Project { ...project } key={project.id} techData={techData} />)}
 
       </div>
     </div>
