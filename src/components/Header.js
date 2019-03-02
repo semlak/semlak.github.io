@@ -68,7 +68,7 @@ class Header extends Component {
               </ul>
             </div>
             {/* <Button color="info" onClick={this.toggle} className="float-right"><i className="fas fa-paper-plane" /> Contact Me</Button> */}
-            <Button color="info" onClick={this.toggle} className="float-right"><FontAwesomeIcon icon={faPaperPlane} /> Contact Me</Button>
+            <Button id="contact" color="danger" onClick={this.toggle} className="float-right contact"><FontAwesomeIcon icon={faPaperPlane} /> Contact Me</Button>
           </Container>
         </header>
         <Contact isOpen={this.state.contactModalIsOpen} close={this.close} open={this.open} toggle={this.toggle} className="contact" />

@@ -37,15 +37,26 @@ const LatestProject = () => (
 );
 */
 
-const TechItem = ({ text, techData }) => {
-  const textLinkRegex = /(\S+)[*]/;
+const TechItemOld = ({ text, techData }) => {
+  // const textLinkRegex = /(\S+)[*]/;
+  const textLinkRegex = /[*](\S+)[*]/;
+  // const textLinkRegex = /([a-zA-Z0-9- .]+)[*]/;
+  // const textLinkRegex = /(\/(\S+|\S+))[*]/;
   if (text && text.length > 0 && text.match(textLinkRegex)) {
-    // console.log(text.match(textLinkRegex));
+    console.log(text.match(textLinkRegex));
     const result = text.match(textLinkRegex);
+    // let result = text.match(textLinkRegex);
+    let word = result[1];
+    if (word.indexOf('/') > -1) {
+      word = word.substring(word.indexOf('/') + 1);
+    }
     // console.log('text', text, 'result:', result);
-    if (result && result.length > 1 && techData && techData[result[1]]) {
-      const newText = result[1];
-      const { url, purpose } = techData[newText];
+    if (word && word.length > 1 && techData && techData[word]) {
+      const data = techData[word];
+      // console.log('data:', data);
+      const newText = data.name ? data.name : word;
+      // const { url, purpose } = techData[newText];
+      const { url, purpose } = data;
       return <li><a href={url} rel="noopener noreferrer">{newText}</a>{purpose ? `: ${purpose}` : ''}</li>;
     }
     // for (var i in result) {
@@ -53,25 +64,80 @@ const TechItem = ({ text, techData }) => {
     // }
   }
   return (<li>{text}</li>);
-}
+};
 
-const Tech = ({ tech, techData }) => {
+
+const TechItem = ({ projectID, text, techData }) => {
+  // const textLinkRegex = /(\S+)[*]/;
+  const textLinkRegex = /[*](\S+)[*](.*$)/;
+  // const textLinkRegex = /([a-zA-Z0-9- .]+)[*]/;
+  // const textLinkRegex = /(\/(\S+|\S+))[*]/;
+  let listItemContent = [];
+  let remainingText = text;
+  let counter = 0;
+  while (remainingText && remainingText.length > 0 && remainingText.match(textLinkRegex) && counter < 5) {
+    counter++;
+    console.log(remainingText.match(textLinkRegex));
+    const result = remainingText.match(textLinkRegex);
+    // let result = text.match(textLinkRegex);
+    // remainingText = remainingText.substring(result[1]);
+    if (result.index > 0) {
+      const prefixText = remainingText.substring(0, result.index);
+      listItemContent.push(<span key={prefixText}>{prefixText}</span>);
+    }
+    remainingText = result[2] || '';
+    console.log('result:', result, 'remainingText', remainingText);
+    const word = result[1];
+    // if (word.indexOf('/') > -1) {
+    //   word = word.substring(word.indexOf('/') + 1);
+    // }
+    // console.log('text', text, 'result:', result);
+    if (word && word.length > 1 && techData && techData[word]) {
+      const data = techData[word];
+      console.log('data:', data);
+      const newText = data.name ? data.name : word;
+      // const { url, purpose } = techData[newText];
+      const { url, purpose } = data;
+      listItemContent.push(<a key={newText + '-' + data.id + '-' + projectID} href={url} target="_blank" rel="noopener noreferrer">{newText}</a>);
+      if (purpose && purpose.length > 0) {
+        listItemContent.push(<span key={purpose + '-' + data.id + '-' + projectID}>: {purpose}</span>);
+      }
+      // return <li><a href={url} rel="noopener noreferrer">{newText}</a>{purpose ? `: ${purpose}` : ''}</li>;
+    }
+    else {
+      listItemContent.push(<span key={word + '-' + text + '-' + projectID}>{word}</span>);
+    }
+    // for (var i in result) {
+    //   console.log('i', i, 'result[i]', result[i]);
+    // }
+  }
+  // else {
+  //   listItemContent.push(<span key={text}>{text}</span>);
+  // }
+  if (remainingText && remainingText.length) {
+    listItemContent.push(<span key={remainingText + '-' + projectID}>{remainingText}</span>);
+  }
+  console.log('text:', text, 'listItemContent:', listItemContent);
+  return (<li>{listItemContent}</li>);
+};
+
+const Tech = ({ projectID, tech, techData }) => {
   // console.log("tectData:", techData); 
   if (tech && tech.length > 0) {
     return (
       <div>
-      <p>Technologies Include:</p>
-      <ul className="technologies">
-        {/* {tech.map(item => <li key={item.toString()}>{item}</li>)} */}
-        {tech.map(item => <TechItem key={item.toString()} text={item} techData={techData} />)}
-      </ul>
+        <p>Technologies Include:</p>
+        <ul className="technologies">
+          {/* {tech.map(item => <li key={item.toString()}>{item}</li>)} */}
+          {tech.map(item => <TechItem projectID={projectID} key={item.toString()} text={item} techData={techData} />)}
+        </ul>
       </div>
     );
   }
   return <div />;
 };
 
-const Project = ({ deployment, repository, longDescription, tech, techData, src, title }) => (
+const Project = ({ id, deployment, repository, longDescription, tech, techData, src, title }) => (
   <Row className="item">
     <Container>
       <Row>
@@ -88,13 +154,13 @@ const Project = ({ deployment, repository, longDescription, tech, techData, src,
           <p>{longDescription}</p>
           {/* {longDescription && longDescription.length > 0 ? longDescription.split(". ").map(text => <p className="mb-2" key={text}>{text}</p>) : ""} */}
           <p>
-            {deployment ? <a className='more-link' href={deployment} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Demo</a> : "" }
+            {deployment ? <a className="more-link" href={deployment} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Demo</a> : "" }
             <a className="more-link" href={repository} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faExternalLinkAlt} />Repository</a>
 
           </p>
         </Col>
       </Row>
-      {tech ? <Row><Col><Tech tech={tech} techData={techData} /></Col></Row> : "" }
+      {tech ? <Row><Col><Tech projectID={id} tech={tech} techData={techData} /></Col></Row> : "" }
       {/* <Col>                                      */}
       {/*   <Tech tech={tech} techData={techData} /> */}
       {/* </Col>                                     */}
@@ -112,7 +178,7 @@ export default ({ projectItems, techData = {} }) => (
         {/* {data.slice(0, 5).map(project => Project(project))} */}
         {/* {projectItems.slice(0, 6).map(project => Project(project))} */}
         {/* {projectItems.slice(0, 6).map(project => <Project { ...project } key={project.id} techData={techData} />)} */}
-        {projectItems.filter(project => project.visible).map(project => <Project { ...project } key={project.id} techData={techData} />)}
+        {projectItems.filter(project => project.visible).map(project => <Project {...project} key={project.id} techData={techData} />)}
 
       </div>
     </div>
