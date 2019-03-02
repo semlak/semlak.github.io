@@ -43,7 +43,7 @@ const TechItemOld = ({ text, techData }) => {
   // const textLinkRegex = /([a-zA-Z0-9- .]+)[*]/;
   // const textLinkRegex = /(\/(\S+|\S+))[*]/;
   if (text && text.length > 0 && text.match(textLinkRegex)) {
-    console.log(text.match(textLinkRegex));
+    // console.log(text.match(textLinkRegex));
     const result = text.match(textLinkRegex);
     // let result = text.match(textLinkRegex);
     let word = result[1];
@@ -77,7 +77,7 @@ const TechItem = ({ projectID, text, techData }) => {
   let counter = 0;
   while (remainingText && remainingText.length > 0 && remainingText.match(textLinkRegex) && counter < 5) {
     counter++;
-    console.log(remainingText.match(textLinkRegex));
+    // console.log(remainingText.match(textLinkRegex));
     const result = remainingText.match(textLinkRegex);
     // let result = text.match(textLinkRegex);
     // remainingText = remainingText.substring(result[1]);
@@ -86,7 +86,7 @@ const TechItem = ({ projectID, text, techData }) => {
       listItemContent.push(<span key={prefixText}>{prefixText}</span>);
     }
     remainingText = result[2] || '';
-    console.log('result:', result, 'remainingText', remainingText);
+    // console.log('result:', result, 'remainingText', remainingText);
     const word = result[1];
     // if (word.indexOf('/') > -1) {
     //   word = word.substring(word.indexOf('/') + 1);
@@ -94,7 +94,7 @@ const TechItem = ({ projectID, text, techData }) => {
     // console.log('text', text, 'result:', result);
     if (word && word.length > 1 && techData && techData[word]) {
       const data = techData[word];
-      console.log('data:', data);
+      // console.log('data:', data);
       const newText = data.name ? data.name : word;
       // const { url, purpose } = techData[newText];
       const { url, purpose } = data;
@@ -117,7 +117,7 @@ const TechItem = ({ projectID, text, techData }) => {
   if (remainingText && remainingText.length) {
     listItemContent.push(<span key={remainingText + '-' + projectID}>{remainingText}</span>);
   }
-  console.log('text:', text, 'listItemContent:', listItemContent);
+  // console.log('text:', text, 'listItemContent:', listItemContent);
   return (<li>{listItemContent}</li>);
 };
 
