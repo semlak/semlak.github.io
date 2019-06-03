@@ -37,5 +37,8 @@
       "collapseWhitespace": false,
       "removeComments": false
     }
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0"
   }
 }

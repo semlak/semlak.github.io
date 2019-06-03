@@ -34,11 +34,14 @@ export const social = [
 
 const aboutMeParagraphs = [
   {
-    text: 'I completed my M.S. in Computer Science at the University of Minnesota in 2016 and my Full-Stack Web Development Certificate with the University of Minnesota Coding Bootcamp in 2018.',
+    text: 'I am currently an Associate Software Engineer at NextEra Analytics working on a team that develops Serverless Angular/Ngrx web applications run from AWS lambdas running, which we implement for Python and PostgreSQL. I also enjoy working on React-Redux and Firebase applications.',
   },
   {
-    text: "I am currently focused in building Full-Stack JavaScript MERN applications (MongoDB/Express/React.js/Node) with functional front-end interfaces, but I'm also comfortable with a variety of other technologies, including MySQL, Firebase, Bootstrap, Material-UI, Handlebars, and jQuery.",
-  }
+    text: 'I completed my M.S. in Computer Science at the University of Minnesota in 2016 and my Full-Stack Web Development Certificate with the University of Minnesota Coding Bootcamp in 2018.',
+  },
+  // {
+  //   text: "I am currently focused in building Full-Stack JavaScript MERN applications (MongoDB/Express/React.js/Node) with functional front-end interfaces, but I'm also comfortable with a variety of other technologies, including MySQL, Firebase, Bootstrap, Material-UI, Handlebars, and jQuery.",
+  // }
 ];
 
 const educationData = [
@@ -70,6 +73,9 @@ const educationData = [
 
 const skillSets = [
   { items: ['JavaScript', 'Node.js', 'Express'], skillLevel: 96, },
+  { items: ['Angular/Rxjs/Ngrx'], skillLevel: 96, },
+  { items: ['Python'], skillLevel: 96, },
+  { items: ['AWS Lambda Serverless Environments'], skillLevel: 96, },
   { items: ['React.js'], skillLevel: 96, },
   { items: ['HTML5', 'CSS3', 'Bootstrap 4'], skillLevel: 90, },
   { items: ['MongoDB', 'MySQL'], skillLevel: 96, },
@@ -77,6 +83,20 @@ const skillSets = [
 
 
 const workData = [
+  {
+    title: "Associate Software Engineer",
+    locationHREF: "http://windlogics.com/",
+    location: "NextEra Analytics (formerly WindLogics)",
+    workDuration: "Mar 2019 - Current",
+    descriptions: [
+      {
+        text: "Develop Serverless Web Applications for modeling and forecasting energy usage to allow the company to provide competitive and diverse energy solutions to its customers.",
+      },
+      {
+        text: "Implemented with technologies including Angular, Ngrx, Python, and PostgreSQL, running as a serverless application with over 100 AWS Lambdas.",
+      },
+    ],
+  },
   {
     title: "Anti-Money Laundering Compliance Consultant",
     locationHREF: "https://wwww.usbank.com",
